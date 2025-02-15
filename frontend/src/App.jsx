@@ -7,6 +7,7 @@ import { Toaster } from 'react-hot-toast';
 import { useAuthStore } from './store/useAuthStore';
 import { useEffect } from 'react';
 import { Loader } from 'lucide-react';
+import Profile from './pages/Profile';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
     <Route path="/" element = {authUser? <Home/> : <Navigate to="signIn" />} />
     <Route path="/signup" element = { !authUser ? <SignUp/> : <Navigate to="/" /> } />
     <Route path="/signin" element = { !authUser ? <SignIn/> : <Navigate to="/" />} />
+    <Route path="/profile" element = { authUser ? <Profile/> : <Navigate to="/" />} />
   </Routes>
   <Toaster />
 </div>

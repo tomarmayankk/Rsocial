@@ -1,5 +1,6 @@
 import Comment from "../models/comment.model.js";
 import Post from "../models/post.model.js";
+import cloudinary from "../lib/cloudinary.js"
 
 
 export const createPost = async (req, res) => {
@@ -30,7 +31,7 @@ export const createPost = async (req, res) => {
 export const getAllPosts = async (req, res) => {
     try {
         const posts = await Post.find()
-            .populate("userId", "name email") // Populate user details
+            .populate("userId", "fullName profilePic email") // Populate user details
             .populate({
                 path: "comments",
                 model: "Comment", // Ensure correct reference
