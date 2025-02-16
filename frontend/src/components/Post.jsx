@@ -15,13 +15,15 @@ const Post = ({post}) => {
       </div>
       {/* Post Content */}
       <div style={{marginTop: "6px"}}>
-        <p className="text-sm">{post.text}🚀</p>
-        <img
-          src="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
-          alt="Post"
-          className="rounded-lg w-full max-h-60 object-cover"
-          style={{marginTop: "6px"}}
-        />
+        <p className="text-sm">{post.text}</p>
+        {post?.image && (
+  <img
+    src={post.image}
+    alt="Post"
+    className="rounded-lg w-full max-h-60 object-cover"
+    style={{ marginTop: "6px" }}
+  />
+)}
       </div>
 
       {/* Like & Comment Buttons */}

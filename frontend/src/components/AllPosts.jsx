@@ -10,7 +10,7 @@ const AllPosts = () => {
   }, [fetchPosts]);
 
   return (
-    <div className="flex w-full flex-col items-center gap-4 no-scrollbar" style={{ marginTop: "15px", overflowY: "auto", maxHeight: "80vh" }}>
+    <div className="flex w-full flex-col items-center gap-4 no-scrollbar h-[550px] " style={{ marginTop: "15px", overflowY: "auto", maxHeight: "80vh" }}>
       {posts.length > 0 ? (
         posts.map((post) => <Post key={post._id} post={post} />)
       ) : (

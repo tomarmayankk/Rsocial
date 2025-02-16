@@ -9,7 +9,7 @@ const Home = () => {
       {/* Navbar at the top */}
       <Navbar />  
       {/* Main content layout */}
-      <div style={{paddingTop: "20px", padding: "10px"}}>
+      <div style={{paddingTop: "20px", padding: "10px"}} className='bg-gray-100'>
         <div className="max-w-6xl mx-auto flex justify-between gap-8">
           <Sidebar />
           <Feed /> 

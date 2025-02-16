@@ -20,7 +20,7 @@ const Sidebar = () => {
           <p className="text-gray-500">{authUser?.email || "johndoe@example.com"}</p>
           <div className='flex flex-row gap-2'>
           <p className='text-black font-semibold'>Member Since:</p>
-          <p className="text-gray-500">{authUser?.createdAt?.split("T") [0] || "johndoe@example.com"}</p>
+          <p className="text-gray-500">{authUser?.createdAt?.split("T") [0]}</p>
           </div>
         </div>
       </div>
