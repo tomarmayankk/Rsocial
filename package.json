@@ -1,0 +1,13 @@
+{
+  "name": "rsocial",
+  "version": "1.0.0",
+  "description": "on last commit the changes made are - created a post model file, comment model, post controller, post routes with create get and delete post options",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "npm run start --prefix backend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

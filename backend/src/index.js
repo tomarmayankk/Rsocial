@@ -6,6 +6,8 @@ import postRoutes from './routes/post.routes.js'
 import userRoutes from './routes/user.routes.js'
 import cookieParser from "cookie-parser";
 import {connectDB} from './lib/db.js'
+import path from "path";
+const __dirname = path.resolve();
 dotenv.config();
 
 const app = express();
@@ -23,7 +25,15 @@ const PORT = process.env.PORT || 5000;
 
 app.use("/api/auth", authRoutes);   
 app.use("/api/post", postRoutes);   
-app.use("/api/user", userRoutes);   
+app.use("/api/user", userRoutes);  
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "../frontend/dist")));
+  
+    app.get("*", (req, res) => {
+      res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+    });
+  }
 
 app.listen(PORT, () => {
     console.log(`Server running at ${PORT}`);
