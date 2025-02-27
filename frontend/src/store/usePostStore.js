@@ -30,7 +30,7 @@ export const usePostStore = create((set, get) => ({
     }
 
     try {
-      const res = await axiosInstance.post(`/post/create-posts`, {
+      const res = await axiosInstance.post(`/post/create-posts/${authUser._id}`, {
         ...postData,
         userId: authUser._id, // Pass userId inside the body
       });
