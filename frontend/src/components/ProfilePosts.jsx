@@ -24,7 +24,7 @@ const ProfilePosts = () => {
       {userPosts.length > 0 ? (
         userPosts.map(post => <Post key={post._id} post={post} />)
       ) : (
-        <p className="text-red-500">No posts found for user ID: {authUser?._id}</p>
+        <p className="text-red-500">No posts found for user: {authUser?.fullName}</p>
       )}
     </div>
   );
