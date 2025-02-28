@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { usePostStore } from "../store/usePostStore";
+import { Loader } from "lucide-react";
 
 const CommentInput = ({ postId }) => {
-  const { createComment } = usePostStore();
+  const { createComment, isPostingComment } = usePostStore();
   const [commentText, setCommentText] = useState("");
 
   const handleSubmit = (e) => {
@@ -16,16 +17,21 @@ const CommentInput = ({ postId }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className="flex items-center gap-2">
+      <form onSubmit={handleSubmit} className="flex items-center gap-2" >
         <input
           type="text"
           value={commentText}
           onChange={(e) => setCommentText(e.target.value)}
           placeholder="Add a comment..."
           className="border rounded-full px-3 py-2 w-full"
+          style={{padding: "8px"}}
         />
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600">
-          Send
+        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600" style={{padding: "8px"}}>
+        {isPostingComment ? (
+          <Loader className='size-10 animate-spin' />
+        ) : (
+          "Post"
+        )}
         </button>
       </form>
     </div>

@@ -1,8 +1,9 @@
 import React from "react";
+import { formatMessageDate, formatMessageTime } from "../lib/utils";
 
 const Comment = ({ comment }) => {
   return (
-    <div className="flex gap-2 w-full p-2">
+    <div className="flex gap-2 w-full" style={{padding: "10px"}}>
       {/* Profile Picture */}
       <div className="flex items-center justify-center">
         <img
@@ -13,19 +14,17 @@ const Comment = ({ comment }) => {
       </div>
 
       {/* Comment Content */}
-      <div className="flex flex-1 w-full justify-between bg-[#e5ecfb] rounded-md p-2">
+      <div className="flex flex-1 w-full justify-between bg-[#e5ecfb] rounded-md" style={{padding: "8px"}}>
         <div className="w-full">
           <h1 className="text-sm font-medium">{comment?.userId?.fullName || "Anonymous"}</h1>
           <p>{comment?.text}</p>
         </div>
 
         {/* Timestamp */}
-        <div>
+        <div className="flex flex-col">
           <p className="text-xs text-gray-500">
-            {new Date(comment?.createdAt).toLocaleTimeString([], {
-              hour: "2-digit",
-              minute: "2-digit",
-            }) || "Just now"}
+            {formatMessageTime(comment?.createdAt) 
+            }
           </p>
         </div>
       </div>

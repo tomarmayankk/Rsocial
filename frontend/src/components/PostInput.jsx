@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PostDialog from "./PostDialog";
-import ProfilePhoto from "./shared/ProfilePhoto";
 
 const PostInput = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,9 +9,8 @@ const PostInput = () => {
        <div className='flex items-center  justify-between gap-3' style={{paddingRight: "20px"}} onClick={() => setIsOpen(true)} >
         <input
         placeholder='Start a Post'
-        className='rounded-full h-12 border-none w-full' 
+        className='rounded-full h-12 border-none w-full outline-none' 
         style={{padding: "20px"}} />
-        <ProfilePhoto/>
     </div>
       {isOpen && <PostDialog onClose={() => setIsOpen(false)} />}
     </div>

@@ -5,6 +5,7 @@ import { useAuthStore } from "./useAuthStore"; // Get authUser from auth store
 
 export const usePostStore = create((set, get) => ({
   isCreatingPost: false,
+  isPostingComment: false,
   selectedPost: null,
   comments: {}, // Store comments by postId
   posts: [],
@@ -23,6 +24,7 @@ export const usePostStore = create((set, get) => ({
 
   // Create a New Post
   createPost: async (postData) => {
+    set({isCreatingPost: true})
     const authUser = useAuthStore.getState().authUser;
     if (!authUser) {
       toast.error("User not authenticated!");
@@ -39,6 +41,8 @@ export const usePostStore = create((set, get) => ({
       toast.success("Post created successfully!");
     } catch (error) {
       toast.error(error.response?.data?.message || "Failed to create post");
+    } finally {
+      set({isCreatingPost: false})
     }
   },
 
@@ -61,6 +65,7 @@ export const usePostStore = create((set, get) => ({
   },
 
   createComment: async (postId, commentText) => {
+    set({isPostingComment: true})
     const authUser = useAuthStore.getState().authUser;
     if (!authUser) {
       toast.error("User not authenticated!");
@@ -87,6 +92,8 @@ export const usePostStore = create((set, get) => ({
       toast.success("Comment added successfully!");
     } catch (error) {
       toast.error(error.response?.data?.message || "Failed to add comment");
+    }finally {
+      set({isPostingComment: false})
     }
   },
 
