@@ -1,6 +1,6 @@
 # Rsocial - A full stack social media chat app
 Rsocial is a full stack social media app built using MERN stack.
-Experience here: [LIVE] (https://rsocial.onrender.com/)
+Experience here: [LIVE](https://rsocial.onrender.com/)
 
 ## Tech stack
 - Front-end: ReactJS + Tailwind CSS for UI part and zustand for State management.
